@@ -1,0 +1,20 @@
+-- Table: public.Users
+
+-- DROP TABLE IF EXISTS public."Users";
+
+CREATE TABLE IF NOT EXISTS public."Users"
+(
+    "UserId" integer NOT NULL DEFAULT nextval('"Users_UserId_seq"'::regclass),
+    "UserName" text COLLATE pg_catalog."default" NOT NULL,
+    "Fio" text COLLATE pg_catalog."default",
+    "PasswordHash" text COLLATE pg_catalog."default" NOT NULL,
+    "Age" integer,
+    CONSTRAINT "Users_pkey" PRIMARY KEY ("UserId")
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public."Users"
+    OWNER to postgres;

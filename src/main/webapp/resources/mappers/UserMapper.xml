@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beloil.spring.dao.IUserDao">
+    <resultMap id="userResultMap"  type="com.beloil.spring.model.User">
+        <id property="userId" column="userId" />
+        <result property="userName" column="userName" />
+        <result property="fio" column="fio" />
+        <result property="passwordHash" column="passwordHash" />
+        <result property="age" column="age" />
+    </resultMap>
+    <select id="queryAll" resultMap="userResultMap">
+        SELECT userId, userName, fio, passwordHash, age  FROM user;
+    </select>
+</mapper>

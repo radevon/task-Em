@@ -1,0 +1,30 @@
+-- Table: public.Comments
+
+-- DROP TABLE IF EXISTS public."Comments";
+
+CREATE TABLE IF NOT EXISTS public."Comments"
+(
+    "CommentId" integer NOT NULL DEFAULT nextval('"Comments_CommentId_seq"'::regclass),
+    "UserId" integer NOT NULL,
+    "TextId" integer NOT NULL,
+    "CommentText" text COLLATE pg_catalog."default" NOT NULL,
+    "DateAt" date NOT NULL DEFAULT now(),
+    CONSTRAINT "Comments_pkey" PRIMARY KEY ("CommentId"),
+    CONSTRAINT "TextsFK" FOREIGN KEY ("TextId")
+        REFERENCES public."Texts" ("TextId") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT "UsersFK" FOREIGN KEY ("UserId")
+        REFERENCES public."Users" ("UserId") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public."Comments"
+    OWNER to postgres;
