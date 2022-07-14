@@ -7,15 +7,15 @@ import org.springframework.stereotype.Repository;
 import com.beloil.spring.model.User;
 
 @Repository
-public interface IUserDao {
+public interface UserMapper {
 	
-	void addUser(User user);
+	int add(User entity);
 
-    void deleteUser(int id);
+    int delete(int id);
 
-    void updateInfo(User user);
+    int update(User entity);
 
-    List<User> queryAll();
+    List<User> getAll();
 
     User getById(int id);
     

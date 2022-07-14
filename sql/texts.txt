@@ -4,10 +4,9 @@
 
 CREATE TABLE IF NOT EXISTS public."Texts"
 (
-    "TextId" integer NOT NULL DEFAULT nextval('"Texts_TextId_seq"'::regclass),
+    "TextId" serial PRIMARY KEY,
     "PublishDate" date NOT NULL DEFAULT now(),
-    "TextContent" text COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT "Texts_pkey" PRIMARY KEY ("TextId")
+    "TextContent" text COLLATE pg_catalog."default" NOT NULL
 )
 WITH (
     OIDS = FALSE

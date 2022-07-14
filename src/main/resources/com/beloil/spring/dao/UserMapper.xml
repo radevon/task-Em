@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beloil.spring.dao.UserMapper">
+    <resultMap id="userResultMap"  type="com.beloil.spring.model.User">
+        <id property="userId" column="UserId" />
+        <result property="userName" column="UserName" />
+        <result property="fio" column="Fio" />
+        <result property="passwordHash" column="PasswordHash" />
+        <result property="age" column="Age" />
+    </resultMap>
+    <select id="getAll" resultMap="userResultMap">
+        SELECT "UserId", "UserName", "Fio", "PasswordHash", "Age"  FROM "Users";
+    </select>
+    <select id="getById" resultMap="userResultMap" parameterType="int">
+        SELECT "UserId", "UserName", "Fio", "PasswordHash", "Age" FROM "Users" where "UserId" = #{id};
+    </select>
+    <select id="getByName" resultMap="userResultMap" parameterType="String">
+        SELECT "UserId", "UserName", "Fio", "PasswordHash", "Age" FROM "Users" where "UserName" = #{userName} LIMIT 1;
+    </select>
+     <insert id="add" useGeneratedKeys="true" parameterType="User" keyProperty="userId" keyColumn="UserId">
+        INSERT into "Users" ("UserName", "Fio", "PasswordHash", "Age") values (#{userName}, #{fio}, #{passwordHash}, #{age});
+    </insert>
+    <update id="update" parameterType="User">
+        UPDATE "Users" set "UserName"=#{userName}, "Fio"=#{fio}, "PasswordHash"=#{passwordHash}, "Age"=#{age} where "UserId" = #{userId};
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE from "Users" where "UserId" = #{id};
+    </delete>
+</mapper>

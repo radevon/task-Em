@@ -9,7 +9,7 @@
         <package name="com.beloil.spring.model"/>
     </typeAliases>
     <mappers>
-        <mapper resource="mappers/UserMapper.xml"/>
+        <mapper resource="com/beloil/springdao/UserMapper.xml"/>
     </mappers>
 
 </configuration>

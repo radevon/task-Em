@@ -6,13 +6,13 @@ import com.beloil.spring.model.User;
 
 public interface IUserService {
 	
-	void addUser(User user);
+	int add(User entity);
 
-    void deleteUser(int id);
+    int delete(int id);
 
-    void updateInfo(User user);
+    int update(User entity);
 
-    List<User> queryAll();
+    List<User> getAll();
 
     User getById(int id);
     

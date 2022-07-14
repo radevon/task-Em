@@ -5,33 +5,33 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.beloil.spring.dao.IUserDao;
+import com.beloil.spring.dao.UserMapper;
 import com.beloil.spring.model.User;
 
 @Service("userService")
 public class UserService implements IUserService {
 	
 	@Autowired
-	private IUserDao userDao;
+	private UserMapper userDao;
 
-	public void addUser(User user) {
+	public int add(User entity) {
 		// TODO Auto-generated method stub
-		userDao.addUser(user);
+		return userDao.add(entity);
 	}
 
-	public void deleteUser(int id) {
+	public int delete(int id) {
 		// TODO Auto-generated method stub
-		userDao.deleteUser(id);
+		return userDao.delete(id);
 	}
 
-	public void updateInfo(User user) {
+	public int update(User entity) {
 		// TODO Auto-generated method stub
-		userDao.updateInfo(user);
+		return userDao.update(entity);
 	}
 
-	public List<User> queryAll() {
+	public List<User> getAll() {
 		// TODO Auto-generated method stub
-		return userDao.queryAll();
+		return userDao.getAll();
 	}
 
 	public User getById(int id) {

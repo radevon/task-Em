@@ -21,8 +21,8 @@ public class BaseController {
 		return "index";
 	}
 	
-	@RequestMapping(value="/api/users",method=RequestMethod.GET)
+	@RequestMapping(value="/apiaa/users",method=RequestMethod.GET)
 	public List<User> getAllUsers() {
-		return userService.queryAll();
+		return userService.getAll();
 	}
 }

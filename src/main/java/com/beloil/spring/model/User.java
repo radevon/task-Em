@@ -8,6 +8,9 @@ public class User {
 	private String passwordHash;
 	private int age;	
 	
+	public User() {
+		super();
+	}
 	public User(int userId, String userName, String fio, String passwordHash, int age) {
 		super();
 		this.userId = userId;

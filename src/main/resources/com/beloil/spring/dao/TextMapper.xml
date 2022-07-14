@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beloil.spring.dao.TextMapper">
+    <resultMap id="textResultMap"  type="com.beloil.spring.model.Text">
+        <id property="textId" column="TextId" />
+        <result property="publishDate" column="PublishDate" />
+        <result property="textContent" column="TextContent" />
+    </resultMap>
+    <select id="getAll" resultMap="textResultMap">
+        SELECT "TextId", "PublishDate", "TextContent"  FROM "Texts";
+    </select>
+    <select id="getById" resultMap="textResultMap" parameterType="int">
+        SELECT "TextId", "PublishDate", "TextContent" FROM "Texts" where "TextId" = #{id};
+    </select>
+     <insert id="add" useGeneratedKeys="true" parameterType="Text" keyProperty="textId" keyColumn="TextId">
+        INSERT into "Texts" ("TextContent") values (#{textContent});
+    </insert>
+    <update id="update" parameterType="Text">
+        UPDATE "Texts" set "TextContent"=#{textContent}, "PublishDate"=NOW() where "TextId" = #{textId};
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE from "Texts" where "TextId" = #{id};
+    </delete>
+</mapper>
