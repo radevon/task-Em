@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beloil.spring.dao.CommentMapper">
+    <resultMap id="commentResultMap"  type="com.beloil.spring.model.Comment">
+        <id property="commentId" column="CommentId" />
+        <result property="textId" column="TextId" />
+        <result property="commentText" column="CommentText" />
+        <result property="dateAt" column="DateAt" />
+        <association property="user" column="UserId" javaType="User"  select="om.beloil.spring.dao.UserMapper.getById" />
+    </resultMap>
+    <select id="getAll" resultMap="userResultMap">
+        SELECT "CommentId", "UserId", "TextId", "CommentText", "DateAt"  FROM "Comments";
+    </select>
+    <select id="getById" resultMap="commentResultMap" parameterType="int">
+        SELECT "CommentId", "UserId", "TextId", "CommentText", "DateAt"  FROM "Comments" where "CommentId" = #{id};
+    </select>
+    <select id="getByTextId" resultMap="commentResultMap" parameterType="int">
+        SELECT "CommentId", "UserId", "TextId", "CommentText", "DateAt"  FROM "Comments" where "TextId" = #{id};
+    </select>
+     <insert id="add" useGeneratedKeys="true" parameterType="Comment" keyProperty="commentId" keyColumn="CommentId">
+        INSERT into "Comments" ("UserId", "TextId", "CommentText") values (#{user.userId}, #{textId}, #{commentText});
+    </insert>
+   
+    <delete id="delete" parameterType="int">
+        DELETE from "Comments" where "CommentId" = #{id};
+    </delete>
+</mapper>

@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.beloil.spring.model.Comment;
 import com.beloil.spring.model.User;
+import com.beloil.spring.service.ICommentService;
 import com.beloil.spring.service.IUserService;
 
 @RestController
@@ -18,6 +20,7 @@ public class UserApiController {
 	
 	@Autowired
 	private IUserService userService;
+	@Autowired ICommentService commentService;
 	
 	
 	@RequestMapping(value="/api/users",method=RequestMethod.GET)
@@ -55,5 +58,11 @@ public class UserApiController {
 	@ResponseBody
 	public int updateUser(@RequestBody User user) {		
 		return userService.update(user);
+	}
+	
+	@RequestMapping(value="/api/comments",method=RequestMethod.GET)
+	@ResponseBody
+	public List<Comment> getAllComments() {		
+		return commentService.getAll();
 	}
 }

@@ -10,6 +10,8 @@
     </typeAliases>
     <mappers>
         <mapper resource="com/beloil/springdao/UserMapper.xml"/>
+        <mapper resource="com/beloil/springdao/TextMapper.xml"/>
+        <mapper resource="com/beloil/springdao/CommentMapper.xml"/>
     </mappers>
 
 </configuration>
