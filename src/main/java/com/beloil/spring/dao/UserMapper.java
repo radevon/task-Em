@@ -2,6 +2,7 @@ package com.beloil.spring.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.beloil.spring.model.User;
@@ -19,5 +20,5 @@ public interface UserMapper {
 
     User getById(int id);
     
-    User getByName(String userName);
+    User getByName(@Param("userName") String userName, @Param("password") String password);
 }

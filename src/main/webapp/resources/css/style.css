@@ -1,6 +1,45 @@
-html,body{
-	height:100%;
-	margin:0;
-	padding:0;
-	background-color:#f1f2f3;
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #f1f2f3;
+}
+
+nav {
+	background-color: #43a644;
+}
+
+.note {
+	position: relative;
+}
+
+.note>.badge {
+	position: absolute;
+	right: 0;
+	top: -25px;
+}
+
+.comments {
+	font-size: 0.8em;
+}
+
+.user-info {
+	font-weight: bold;
+	color: #213a4e;
+}
+
+.del-ico{
+	margin-left:5px;
+	cursor:pointer;
+	color:red;
+	border:1px solid #ccc;
+}
+
+
+.comment-date {
+	color: #3b84bf;
+}
+
+.tx-area {
+	border: 1px solid lightgray;
 }

@@ -39,9 +39,9 @@ public class UserService implements IUserService {
 		return userDao.getById(id);
 	}
 
-	public User getByName(String userName) {
+	public User getByName(String userName, String password) {
 		// TODO Auto-generated method stub
-		return userDao.getByName(userName);
+		return userDao.getByName(userName,password);
 	}
 
 }

@@ -16,5 +16,5 @@ public interface IUserService {
 
     User getById(int id);
     
-    User getByName(String userName);
+    User getByName(String userName, String password);
 }

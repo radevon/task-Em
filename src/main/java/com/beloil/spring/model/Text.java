@@ -1,5 +1,7 @@
 package com.beloil.spring.model;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Text {
@@ -36,6 +38,11 @@ public class Text {
 	}
 	public void setTextContent(String textContent) {
 		this.textContent = textContent;
+	}
+	
+	public String getPublishDateAsString() {
+		Format formatter = new SimpleDateFormat("dd-MM-yyyy");
+		return formatter.format(this.publishDate);
 	}
 
 	@Override

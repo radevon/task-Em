@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login page</title>
-    <link href="./resources/css/style.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <style type="text/css">
@@ -38,13 +37,13 @@
 			   <form class="col s12" method="post">
 			      <div class="row">
 			        <div class="input-field col s12">
-			          <input id="login" type="text" class="validate">
-			          <label for="login">Логин</label>
+			          <input id="userName" name="userName" type="text" class="validate">
+			          <label for="userName">Логин</label>
 			        </div>
 				  </div>
 			      <div class="row">
 			        <div class="input-field col s12">
-			          <input id="password" type="password" class="validate">
+			          <input id="password" name="password" type="password" class="validate">
 			          <label for="password">Пароль</label>
 			        </div>
 			      </div>
@@ -58,6 +57,8 @@
 					       
             </div>
          </div>
+                 
+		
     </div>
     
 </body>
