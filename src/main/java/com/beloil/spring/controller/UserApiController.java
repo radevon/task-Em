@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.beloil.spring.model.User;
+import com.beloil.spring.security.UserServiceSecurity;
 import com.beloil.spring.service.IUserService;
 
 @RestController
@@ -19,6 +20,8 @@ public class UserApiController {
 	
 	@Autowired
 	private IUserService userService;
+	@Autowired
+	private UserServiceSecurity userServiceSecurity;
 		
 	
 	@RequestMapping(value="/api/users",method=RequestMethod.GET)
@@ -37,7 +40,7 @@ public class UserApiController {
 	@RequestMapping(value="/api/user",method=RequestMethod.POST)
 	@ResponseBody
 	public int addUser(@RequestBody User user) {		
-		userService.add(user);
+		userServiceSecurity.createUser(user);
 		return user.getUserId();
 	}
 	

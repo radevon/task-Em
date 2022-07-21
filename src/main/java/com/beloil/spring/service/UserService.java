@@ -13,6 +13,7 @@ public class UserService implements IUserService {
 	
 	@Autowired
 	private UserMapper userDao;
+	
 
 	public int add(User entity) {
 		// TODO Auto-generated method stub
@@ -39,9 +40,9 @@ public class UserService implements IUserService {
 		return userDao.getById(id);
 	}
 
-	public User getByName(String userName, String password) {
+	public User getByName(String userName) {
 		// TODO Auto-generated method stub
-		return userDao.getByName(userName,password);
+		return userDao.getByName(userName);
 	}
 
 }

@@ -1,6 +1,11 @@
 package com.beloil.spring.model;
 
-public class User {
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+public class User implements UserDetails {
 	
 	private  int userId;
 	private String userName;
@@ -53,5 +58,40 @@ public class User {
 	public String toString() {
 		return "User [userId=" + userId + ", userName=" + userName + ", fio=" + fio + ", passwordHash=" + passwordHash
 				+ ", age=" + age + "]";
+	}
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return this.getPasswordHash();
+	}
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return this.getUserName();
+	}
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 }

@@ -21,9 +21,10 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS public."Users"
     OWNER to postgres;
 
-INSERT into "Users" ("UserName", "Fio", "PasswordHash", "Age") values ('user1', 'Ivan Ivanich', 'user1', 25);
-INSERT into "Users" ("UserName", "Fio", "PasswordHash", "Age") values ('user2', 'Petr Petrovich', 'user2', 28);
-INSERT into "Users" ("UserName", "Fio", "PasswordHash", "Age") values ('user3', 'Stepan Stepanich', 'user3', 33);
+    -- пароль такой же как логин!
+INSERT into "Users" ("UserName", "Fio", "PasswordHash", "Age") values ('user', 'Ivan Ivanich', '$2a$10$2Df/RkwlblsBzBxtgx9R3OcKakluX3XzHw5ilkKjA8Xg/dr23uKE2', 25);
+INSERT into "Users" ("UserName", "Fio", "PasswordHash", "Age") values ('user1', 'Petr Petrovich', '$2a$10$sD96meng8z5GG2nfCvgfsOWBCzJShx6TxvK3YDskA6w.fWXw6zf0i', 28);
+
 
 
 

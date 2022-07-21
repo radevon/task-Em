@@ -13,13 +13,15 @@
     
 </head>
 <body>
-
+	<script type="text/javascript">
+	let globalCurrentUserName='${auth.getName()}';
+	</script>
 
 	<nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="right">
         <li><a href="./">Все материалы</a></li>
-        <li class="red"><a href="./logout">Выйти из аккаунта</a></li>
+        <li class="red"><a href="./logout">Выйти из ${auth.getName()}</a></li>
       </ul>
     </div>
   </nav>

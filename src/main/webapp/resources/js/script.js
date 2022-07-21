@@ -3,15 +3,14 @@
  */
  //загрузка блока с комментариями по каждой статье
  function loadComments(idBlock){ 
-	let cookie=getCookie('auth');
-   	  	fetch('./api/comments/'+idBlock)
+	  	fetch('./api/comments/'+idBlock)
    	  		.then(response => response.json())
    	  		.then(items => {
    			let container=document.querySelector("#c-"+idBlock);
    			let el='';
    			for(let c of items){
 				let delIcon='<span title="Удалить комментарий" class="del-ico" onclick="deleteComment('+idBlock+','+c.commentId+')">X</span>';
-  				el+='<blockquote><span class="user-info">'+c.user.userName+'</span> от <span class="comment-date">'+ (new Date(c.dateAt)).toLocaleDateString()+'</span>: <i>'+c.commentText+'</i>'+(cookie==c.user.userId?delIcon:'')+'</blockquote>';
+  				el+='<blockquote><span class="user-info">'+c.user.userName+'</span> от <span class="comment-date">'+ (new Date(c.dateAt)).toLocaleDateString()+'</span>: <i>'+c.commentText+'</i>'+(globalCurrentUserName==c.user.userName?delIcon:'')+'</blockquote>';
      		}
   			container.innerHTML=el;
   	  		});
@@ -32,14 +31,8 @@ function addComment(idBlock){
   	const text=document.querySelector("#comment-text-"+idBlock).value;
  	if(text.trim()=='')
   	 return false;
-    let cookie=getCookie('auth');
-  	if(!cookie)
-	 {
- 	 	alert('Время авторизации истекло. Войдите под своим акккаунтом');
-  		 	return false;
-     }
-      		
-  	 let comment={textId:idBlock,commentText:text,user:{userId:cookie}};
+          		
+  	 let comment={textId:idBlock,commentText:text};
   	 fetch('./api/comment/',
   	  { method: 'POST',
   	    headers: {'Content-Type': 'application/json;charset=utf-8' },

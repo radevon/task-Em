@@ -15,7 +15,7 @@
         SELECT "UserId", "UserName", "Fio", "PasswordHash", "Age" FROM "Users" where "UserId" = #{id};
     </select>
     <select id="getByName" resultMap="userResultMap">
-        SELECT "UserId", "UserName", "Fio", "PasswordHash", "Age" FROM "Users" where "UserName" = #{userName} and "PasswordHash"= #{password} LIMIT 1;
+        SELECT "UserId", "UserName", "Fio", "PasswordHash", "Age" FROM "Users" where "UserName" = #{userName} LIMIT 1;
     </select>
      <insert id="add" useGeneratedKeys="true" parameterType="User" keyProperty="userId" keyColumn="UserId">
         INSERT into "Users" ("UserName", "Fio", "PasswordHash", "Age") values (#{userName}, #{fio}, #{passwordHash}, #{age});

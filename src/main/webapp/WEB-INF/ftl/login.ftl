@@ -37,7 +37,7 @@
 			   <form class="col s12" method="post">
 			      <div class="row">
 			        <div class="input-field col s12">
-			          <input id="userName" name="userName" type="text" class="validate">
+			          <input id="username" name="username" type="text" class="validate">
 			          <label for="userName">Логин</label>
 			        </div>
 				  </div>
@@ -54,7 +54,6 @@
 			      </div>
 			      
 			    </form>
-					       
             </div>
          </div>
                  
